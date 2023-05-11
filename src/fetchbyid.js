@@ -1,7 +1,7 @@
-const BASE_URL='https://restcountries.com/v3.1/name';
+const BASE_URL='https://books-backend.p.goit.global/books/';
 
-function fetchCountries(name){
-    return fetch(`${BASE_URL}/${name}?fields=name,capital,population,flags,languages`)
+function fetchBookById(idBook){
+    return fetch(`${BASE_URL}/${idBook}`)
     .then((resp) => {
         if (!resp.ok) {
           throw new Error(resp.statusText);
@@ -10,4 +10,4 @@ function fetchCountries(name){
       });
 }
 
-export default {fetchCountries};
+export default {fetchBookById};

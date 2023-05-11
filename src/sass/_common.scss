@@ -1,1 +1,47 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+* {
+    box-sizing: border-box;
+  }
+  
+body{
+font-family: 'Roboto', sans-serif;
+font-size: 14px;
+line-height: 1.7;
+letter-spacing: 0.03em;
+
+}
+img{
+display: block;
+max-width: 100%;
+height: auto; 
+}
+p{
+margin: 0;
+padding: 0;
+}
+.country-list{
+list-style: none;
+padding: 0;
+margin: 0 0 0 30px;
+}
+
+.country-item{
+display: flex;
+gap: 10px;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.country-thumb{
+display: flex;
+gap: 10px;
+text-align: center;
+
+margin-left: 30px;
+margin-bottom: 30px;
+}
+
+.country-name{
+font-weight: 700;
+font-size: 36px;   
+}
