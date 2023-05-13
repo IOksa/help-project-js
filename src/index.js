@@ -7,54 +7,57 @@ const refs={
     backdrop: document.querySelector('.js-backdrop'),
 }
 
+
 console.log(refs.closeModalBtn);
 console.log(refs.backdrop);
 
 refs.ul.addEventListener('click',onClickItemGalleryBooks);
-//refs.closeModalBtn.addEventListener('click', onCloseModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
+onOpenModal();
 
-API.fetchTopBooks().then(createMarkupGalleryBooks);
-//.catch(err=>console.log('Ooops! Something went wrong!'));;
+///////////////////////////////////////////////////////////////////////////////////////
+//API.fetchTopBooks().then(createMarkupGalleryBooks);
+//.catch(err=>console.log('Ooops! Something went wrong!'));
 
-function createMarkupGalleryBooks(arr) {
-    console.log('createMarkupGalleryBooks',arr);
-    console.log(arr[0].books[0]);
-    const markup=arr[0].books.map(
-        ({
-        _id,
-        book_image,
-        book_image_width,
-        book_image_height,
-        }) =>
-        `<li ><div class="thumb"><img class="gallery__image" src="${book_image}" alt="" width="${book_image_width}px" height="${book_image_height}px" data-source="${_id}"/><div></li>`
-      )
-      .join("");
-      console.log(markup);
-      refs.ul.innerHTML=markup;
- }
+// function createMarkupGalleryBooks(arr) {
+//     console.log('createMarkupGalleryBooks',arr);
+//     console.log(arr[0].books[0]);
+//     const markup=arr[0].books.map(
+//         ({
+//         _id,
+//         book_image,
+//         book_image_width,
+//         book_image_height,
+//         }) =>
+//         `<li ><div class="thumb"><img class="gallery__image" src="${book_image}" alt="" width="${book_image_width}px" height="${book_image_height}px" data-source="${_id}"/><div></li>`
+//       )
+//       .join("");
+//       console.log(markup);
+//       refs.ul.innerHTML=markup;
+//  }
+// /////////////////////////////////////////////////////////////////////////////////////
+// function onClickItemGalleryBooks(event){
+//     event.preventDefault();
 
-function onClickItemGalleryBooks(event){
-    event.preventDefault();
+//     const isImageGalleryEl=event.target.classList.contains('gallery__image');
+//     if(!isImageGalleryEl){
+//         return;
+//     }
+//     console.log(event.target.dataset.source);
+//     openGalleryItemInModal(event.target.dataset.source);
+// }
 
-    const isImageGalleryEl=event.target.classList.contains('gallery__image');
-    if(!isImageGalleryEl){
-        return;
-    }
-    console.log(event.target.dataset.source);
-    openGalleryItemInModal(event.target.dataset.source);
-}
+// function openGalleryItemInModal(idBook){
+//     console.log('openGalleryItemInModal');
 
-function openGalleryItemInModal(idBook){
-    console.log('openGalleryItemInModal');
+//     AP.fetchBookById(idBook).then(res=>console.log(res))
+//     .catch(err=>console.log('Ooops! Something went wrong!'));
 
-    AP.fetchBookById(idBook).then(res=>console.log(res))
-    .catch(err=>console.log('Ooops! Something went wrong!'));
+//     onOpenModal();
 
-    onOpenModal();
-
-}
+// }
 
 
 function onOpenModal() {
